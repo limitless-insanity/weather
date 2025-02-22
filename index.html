@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -141,3 +141,139 @@
   </body>
 </html>
 
+ -->
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/00a7ab4cb7.js" crossorigin="anonymous"></script>
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@4.0.2/dist/timeago.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .left, .right {
+        width: 100%;
+      }
+      .container, .rightContainer {
+        padding: 1rem;
+      }
+      .searchBar {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .searchInput {
+        flex-grow: 1;
+        padding: 0.5rem;
+      }
+      .searchButton {
+        padding: 0.5rem 1rem;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .overviewProp {
+        flex: 1;
+        min-width: 150px;
+      }
+      @media (min-width: 768px) {
+        .wrapper {
+          flex-wrap: nowrap;
+        }
+        .left {
+          width: 60%;
+        }
+        .right {
+          width: 40%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="left">
+        <div class="container">
+          <div class="header">
+            <div class="date" id="date"></div>
+            <div class="searchBar">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input class="searchInput" id="searchInput" type="text" />
+              <button class="searchButton" onclick="getWeatherData()">Search</button>
+            </div>
+          </div>
+          <div class="todayOverview">
+            <div class="sectionTitle">Today Overview</div>
+            <div class="row">
+              <div class="overviewProp">
+                <div class="propIconContainer">
+                  <i class="propIcon fa-solid fa-wind"></i>
+                </div>
+                <div class="propValueContainer">
+                  <div class="propTitle">Wind</div>
+                  <div class="propMain">
+                    <span class="primaryData">
+                      <span class="propValue" id="wind"></span>
+                      <span class="propMetric">mph</span>
+                    </span>
+                    <span class="secondaryData" id="windDir"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="overviewProp">
+                <div class="propIconContainer">
+                  <i class="propIcon fa-solid fa-temperature-half"></i>
+                </div>
+                <div class="propValueContainer">
+                  <div class="propTitle">Lowest / Highest</div>
+                  <div class="propMain">
+                    <span class="primaryData">
+                      <span class="propValue" id="lowestToday"></span>
+                      <span class="propMetric">˚F</span>
+                      <span> / </span>
+                      <span class="propValue" id="highestToday"></span>
+                      <span class="propMetric">˚F</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="rightContainer">
+          <div class="top">
+            <div class="location" id="location"></div>
+            <div class="time" id="time"></div>
+          </div>
+          <div class="currentWeather">
+            <div class="weatherIconContainer">
+              <img src="" alt="weather icon" id="weatherIcon" />
+            </div>
+            <div class="currentTemperatureValueContainer">
+              <span class="currentTemperatureValue" id="currentTemp"></span>
+              <span class="currentTemperatureMetric">˚F</span>
+            </div>
+            <div class="temperatureDescription" id="weatherDescription"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
